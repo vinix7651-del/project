@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Forever Together ✨</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Tahoma,sans-serif;
+      background:
+      linear-gradient(135deg,
+      #0f172a,
+      #1e293b,
+      #312e81,
+      #111827);
+
+      background-size:400% 400%;
+      animation:bgMove 12s ease infinite;
+
+      color:white;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    @keyframes bgMove{
+      0%{
+        background-position:0% 50%;
+      }
+
+      50%{
+        background-position:100% 50%;
+      }
+
+      100%{
+        background-position:0% 50%;
+      }
+    }
+
+    /* ✨ انيميشن */
+
+    body::before,
+    body::after{
+      content:"✨";
+      position:fixed;
+      font-size:26px;
+      opacity:0.2;
+      z-index:1;
+      animation:floatThings 14s linear infinite;
+    }
+
+    body::before{
+      left:10%;
+      top:100%;
+    }
+
+    body::after{
+      right:10%;
+      top:120%;
+      animation-delay:6s;
+    }
+
+    @keyframes floatThings{
+
+      0%{
+        transform:translateY(0) rotate(0deg) scale(1);
+        opacity:0;
+      }
+
+      20%{
+        opacity:0.6;
+      }
+
+      50%{
+        transform:translateY(-50vh) rotate(180deg) scale(1.4);
+      }
+
+      100%{
+        transform:translateY(-120vh) rotate(360deg) scale(0.8);
+        opacity:0;
+      }
+
+    }
+
+    section{
+      position:relative;
+      z-index:2;
+    }
+
+    /* البداية */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:25px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:rgba(255,255,255,0.06);
+      border-radius:50%;
+      filter:blur(90px);
+      animation:glow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow{
+
+      from{
+        transform:scale(1);
+      }
+
+      to{
+        transform:scale(1.2);
+      }
+
+    }
+
+    .hero-content{
+      max-width:750px;
+    }
+
+    .hero h1{
+      font-size:3.3rem;
+      color:#dbeafe;
+      margin-bottom:25px;
+      line-height:1.5;
+      text-shadow:0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .hero p{
+      font-size:1.3rem;
+      line-height:2;
+      color:#e2e8f0;
+    }
+
+    .hero span{
+      display:inline-block;
+      margin-top:35px;
+      color:#93c5fd;
+      letter-spacing:4px;
+      font-size:1rem;
+    }
+
+    /* الصور */
+
+    .photo-section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:50px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:430px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:35px;
+      overflow:hidden;
+      transition:0.5s;
+      box-shadow:0 0 35px rgba(255,255,255,0.08);
+    }
+
+    .card:hover{
+      transform:scale(1.04) rotate(1deg);
+    }
+
+    .card img{
+      width:100%;
+      height:520px;
+      object-fit:cover;
+    }
+
+    .card h2{
+      padding:28px;
+      text-align:center;
+      font-size:1.25rem;
+      line-height:1.8;
+      color:#f8fafc;
+      font-weight:normal;
+    }
+
+    /* النهاية */
+
+    .ending{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:30px;
+    }
+
+    .ending-box{
+      max-width:800px;
+    }
+
+    .ending h1{
+      font-size:3rem;
+      color:#bfdbfe;
+      margin-bottom:30px;
+    }
+
+    .ending p{
+      font-size:1.25rem;
+      line-height:2.3;
+      color:#e2e8f0;
+    }
+
+    .love{
+      margin-top:40px;
+      font-size:1.1rem;
+      color:#93c5fd;
+      letter-spacing:4px;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2.2rem;
+      }
+
+      .hero p{
+        font-size:1.05rem;
+      }
+
+      .card{
+        max-width:95%;
+      }
+
+      .card img{
+        height:430px;
+      }
+
+      .card h2{
+        font-size:1.05rem;
+      }
+
+      .ending h1{
+        font-size:2rem;
+      }
+
+      .ending p{
+        font-size:1rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- الموسيقى -->
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="playBtn"
+style="
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+padding:12px 25px;
+border-radius:25px;
+border:none;
+background:#93c5fd;
+color:#000;
+font-weight:bold;
+z-index:9999;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,255,255,0.2);
+">
+▶ Play Music ✨
+</button>
+
+<!-- البداية -->
+
+<section class="hero">
+
+  <div class="hero-content" data-aos="fade-up">
+
+    <h1>
+      وجودك غير كل حاجة جوايا ✨
+    </h1>
+
+    <p>
+      في ناس وجودها بيعدي عادي...
+      وفي ناس بتسيب أثر مستحيل يختفي.
+    </p>
+
+    <span>
+      FOREVER TOGETHER 💙
+    </span>
+
+  </div>
+
+</section>
+
+<!-- صورة 1 -->
+
+<section class="photo-section">
+
+  <div class="card" data-aos="fade-up">
+
+    <img src="photo1.jpg">
+
+    <h2>
+      كل تفصيلة فيكي بتخليني أبتسم بدون سبب 🤍
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- صورة 2 -->
+
+<section class="photo-section">
+
+  <div class="card" data-aos="fade-right">
+
+    <img src="photo2.jpg">
+
+    <h2>
+      أنتِ الشعور الحلو اللي بيهون أي يوم صعب ✨
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- صورة 3 -->
+
+<section class="photo-section">
+
+  <div class="card" data-aos="zoom-in">
+
+    <img src="photo3.jpg">
+
+    <h2>
+      في عيني… مفيش شبه ليكي 🌙
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- صورة 4 -->
+
+<section class="photo-section">
+
+  <div class="card" data-aos="fade-left">
+
+    <img src="photo4.jpg">
+
+    <h2>
+      حتى السكوت معاكي له إحساس مختلف 💙
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- صورة 5 -->
+
+<section class="photo-section">
+
+  <div class="card" data-aos="flip-up">
+
+    <img src="photo5.jpg">
+
+    <h2>
+      وهفضل دايمًا ممتن إنك جزء من حياتي ✨
+    </h2>
+
+  </div>
+
+</section>
+
+<!-- النهاية -->
+
+<section class="ending">
+
+  <div class="ending-box" data-aos="zoom-in">
+
+    <h1>
+      You Mean Everything ❤️
+    </h1>
+
+    <p>
+      مش كل الناس بتعرف توصل لمرحلة الأمان مع حد...
+      بس أنا لقيت الإحساس ده معاكي.
+      <br><br>
+      وأيًا كان اللي هيحصل بعدين...
+      هتفضلي واحدة من أجمل الحاجات اللي دخلت حياتي.
+    </p>
+
+    <div class="love">
+      FOREVER ✨
+    </div>
+
+  </div>
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+AOS.init({
+  duration:1800,
+  once:false
+});
+
+const btn = document.getElementById("playBtn");
+const audio = document.getElementById("bgMusic");
+
+btn.addEventListener("click", function () {
+
+  audio.volume = 0.6;
+
+  audio.play().then(() => {
+
+    btn.innerText = "🎶 Playing";
+
+  }).catch(() => {
+
+    alert("اضغط مرة تانية");
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
